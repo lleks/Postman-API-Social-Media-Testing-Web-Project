@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "84376d29-bf85-4f3c-8b31-39442d59be1b",
+		"name": "newbookmodels.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Group Auth",
+			"item": [
+				{
+					"name": "ClientSignup_sucsess",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fooll@bar.com\",\r\n    \"first_name\": \"foo\",\r\n    \"last_name\": \"bar\",\r\n    \"password\": \"qwer1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/client/signup/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"client",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin_valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Email maching string_leksnomo@gmail.com\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"leksnomo@gmail.com\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Newbook-Client",
+								"value": "client",
+								"type": "text"
+							},
+							{
+								"key": "X-Newbook-Version",
+								"value": "v1",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leksnomo@gmail.com\",\r\n    \"password\": \"Zaq1@wsX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signin/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signin",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "leksnomo@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Zaq1@wsX",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin_invalid_login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Login is not correct\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Please enter a correct email and password\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Newbook-Client",
+								"value": "client",
+								"type": "text"
+							},
+							{
+								"key": "X-Newbook-Version",
+								"value": "v1",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leksnom0@gmail.com\",\r\n    \"password\": \"Zaq1@wsX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signin/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signin",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "leksnomo@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Zaq1@wsX",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin_invalid_password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Password is not correct\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Please enter a correct email and password\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Newbook-Client",
+								"value": "client",
+								"type": "text"
+							},
+							{
+								"key": "X-Newbook-Version",
+								"value": "v1",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leksnomo@gmail.com\",\r\n    \"password\": \"zaq1@wsX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signin/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signin",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "leksnomo@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Zaq1@wsX",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSelfData_valid",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTM2NzAyNzksInVzZXJfaWQiOiJlMDE3YjAzYS0zZWU2LTQ1OWMtYTYxNC00NjNhMGMzMTJhYTgiLCJleHAiOjE2MTYyNjIyNzl9.yyk8xSQEGP3ZuaVRvcJ_q6AHlmvjW69OfAm9Uqy1Yx8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/client/self/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"client",
+								"self",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSelfModelUserDataInput_valid",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTM2NzAyNzksInVzZXJfaWQiOiJlMDE3YjAzYS0zZWU2LTQ1OWMtYTYxNC00NjNhMGMzMTJhYTgiLCJleHAiOjE2MTYyNjIyNzl9.yyk8xSQEGP3ZuaVRvcJ_q6AHlmvjW69OfAm9Uqy1Yx8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/client/self/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"client",
+								"self",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group Cities",
+			"item": [
+				{
+					"name": "Get list of cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cities/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of cities Name filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cities/?name=Kiev",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cities",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kiev"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of cities country_code filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Country_code is UA\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"UA\");\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cities/?country_code=UA",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cities",
+								""
+							],
+							"query": [
+								{
+									"key": "country_code",
+									"value": "UA"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group Welcome",
+			"item": [
+				{
+					"name": "Get recently viewed models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTM2NzAyNzksInVzZXJfaWQiOiJlMDE3YjAzYS0zZWU2LTQ1OWMtYTYxNC00NjNhMGMzMTJhYTgiLCJleHAiOjE2MTYyNjIyNzl9.yyk8xSQEGP3ZuaVRvcJ_q6AHlmvjW69OfAm9Uqy1Yx8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/welcome/recently_viewed/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"welcome",
+								"recently_viewed",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recently approved models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTM2NzAyNzksInVzZXJfaWQiOiJlMDE3YjAzYS0zZWU2LTQ1OWMtYTYxNC00NjNhMGMzMTJhYTgiLCJleHAiOjE2MTYyNjIyNzl9.yyk8xSQEGP3ZuaVRvcJ_q6AHlmvjW69OfAm9Uqy1Yx8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/welcome/recently_approved/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"welcome",
+								"recently_approved",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request a t-shirt",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTM2NzAyNzksInVzZXJfaWQiOiJlMDE3YjAzYS0zZWU2LTQ1OWMtYTYxNC00NjNhMGMzMTJhYTgiLCJleHAiOjE2MTYyNjIyNzl9.yyk8xSQEGP3ZuaVRvcJ_q6AHlmvjW69OfAm9Uqy1Yx8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image_id\": \"b2ff98b2-3dff-46e2-bbd6-573b1f992022\",\r\n    \"image_cropped_id\": \"b2ff98b2-3dff-46e2-bbd6-573b1f992022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/welcome/tshirt/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"welcome",
+								"tshirt",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group Onboarding",
+			"item": [
+				{
+					"name": "Browse models",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/onboarding/browse/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"onboarding",
+								"browse",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user portfolio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/{user_id}/recommended/?user_id=b2ff98b2-3dff-46e2-bbd6-573b1f992022&page_size=7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{user_id}",
+								"recommended",
+								""
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "b2ff98b2-3dff-46e2-bbd6-573b1f992022"
+								},
+								{
+									"key": "page_size",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
