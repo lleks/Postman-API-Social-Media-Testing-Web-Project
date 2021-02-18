@@ -1,8 +1,0 @@
-One of the last experience that I had in QA testing was Web-based social network professional application.
-This App Like Linkedin let people meet here people who are looking for a job in fashion buisness and people who ara jobs gives.
-So tha App has whide few different types of users:
- - clients (job givers, create projects, castings, diferrent activities); 
- - models (who are looking for a job, they want to applie, they create the portfolio and have the opportunity to find interesting project and job);
- - admin (special user, you can not create this type of users on the App, it is created directly in the data base).
-The reason is that the App is very sensitive - its very easy to abuse people, who are vorking in fassion industry.
-So each and any users (models or clients) shood be oproved by admin. This is his roles - to review and approve or reject or block different types of users.
